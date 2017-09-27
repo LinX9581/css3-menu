@@ -1,0 +1,123 @@
+﻿@charset "UTF-8";
+/*
+style.css
+*/
+
+body {
+  position: relative;
+  font-size: 62.5%;
+  line-height: 1.8;
+  margin: 0;
+  background: url(../img/bg.jpg);
+}
+
+/* 從左側滑入的顯示區域*/
+
+
+#mainNavigation {	/*圖示位置*/
+  /* nav*/
+  text-decoration: none;
+  position: absolute;
+  top: 5px;
+  right: 2px;
+  z-index: 1;
+}
+
+#mainNavigation i {
+  /*display: inline-block;*/
+  width: 18%;
+  vertical-align: middle;
+  font-size: 1.5em;  /* 圖片大小*/
+/*  line-height: 1;*/
+  color: inherit;
+}
+#mainNavigation a {
+  
+  padding: 0.5em;   /*  *4 區塊長度  */
+  overflow: hidden;
+  color: #888;
+  /*border-left: 0.5em solid #ddd;*/
+}
+
+#mainNavigation a,
+#mainNavigation a:hover i,
+#mainNavigation a:hover span {
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+#mainNavigation .nav_user a:hover {
+  /* User的顏色 */
+  color: white; /*#717FE7*/
+  border-color: #717FE7;  /* li 框架*/
+  /*background-color: black; /*#F4F5FF*/
+}
+
+/* ------------------------nav選單 css3 --------------------------------*/
+ nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform .5s;
+  transform: translateY(-100%);
+  background-color: black;
+  color: gray;
+  display: flex;
+  width: 100%;
+  height: 85px;
+  box-sizing: border-box;
+}
+
+ nav>a {
+  flex: 1;
+  color: inherit;
+  text-decoration: none;
+  text-align: center;
+  font-size: 25pt;
+  text-decoration: none;
+  -webkit-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+nav>a:hover { 
+	color: white; 
+	text-shadow: 0 0 5px white; 
+}
+/*----------選單動畫部分-----------*/
+		
+ nav.show {
+  transform: translateY(0);
+}
+ nav.showout {
+  transform: translateY(0);
+}
+/*---------選單下來------*/
+nav.show>a { 
+	transform: translateY(-100px);
+	transition: color 1.5s; 
+} 
+
+nav.show>a:nth-child(1) { animation: showin .5s  .3s forwards; }
+nav.show>a:nth-child(2) { animation: showin .5s  .5s forwards; }
+nav.show>a:nth-child(3) { animation: showin .5s  .7s forwards; }
+nav.show>a:nth-child(4) { animation: showin .5s .9s forwards; }
+
+@keyframes showin {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(20%); }
+}
+/*---------選單上去------*/
+nav.showout>a { 
+	transform: translateY(20%); 
+	transition: color .5s; 
+} 
+nav.showout>a:nth-child(1) { animation: showout .5s  .1s forwards; }
+nav.showout>a:nth-child(2) { animation: showout .5s  .3s forwards; }
+nav.showout>a:nth-child(3) { animation: showout .5s  .5s forwards; }
+nav.showout>a:nth-child(4) { animation: showout .5s .7s forwards; }
+nav.showout:nth-child(1) { animation: showout .5s .9s forwards; }
+
+@keyframes showout {
+  0% { transform: translateY(20%px); }
+  100% { transform: translateY(-100%); }
+}
+/*----------選單動畫結束-----------*/
